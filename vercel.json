@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "builds": [{"src": "package.json", "use": "@vercel/static-build", "config": {"distDir": "dist"}}],
-  "routes": [
-    {"src": "/assets/(.*)", "dest": "/assets/$1"},
-    {"src": "/(.*\\.(js|css|json|ico))$", "dest": "/$1"},
-    {"src": "/(.*)", "dest": "/index.html"}
+  "builds": [
+    {
+      "src": "package.json",  // 关键修改：使用 package.json 作为构建入口
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
   ],
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm run build"
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*\\.(js|css|json|ico|txt))$", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist"
 }
