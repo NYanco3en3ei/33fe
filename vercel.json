@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",  // 关键修改：使用 package.json 作为构建入口
+      "src": "package.json", 
       "use": "@vercel/static-build",
       "config": { "distDir": "dist" }
     }
@@ -13,6 +13,5 @@
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "pnpm run build"
 }
