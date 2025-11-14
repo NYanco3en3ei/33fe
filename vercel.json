@@ -2,9 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",  
-      "use": "@vercel/static-build", 
-      "config": { "distDir": "dist" } 
+      "src": "package.json",  // 以 package.json 触发构建流程
+      "use": "@vercel/static-build",  // 该构建器会执行 buildCommand
+      "config": { "distDir": "dist" }  // 指定 Vite 构建产物目录
     }
   ],
   "routes": [
@@ -13,5 +13,6 @@
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm run build"  // 确保执行 Vite 构建
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist"
 }
