@@ -10,6 +10,6 @@
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
   ],
-  "installCommand": "pnpm install --no-frozen-lockfile",
+  "installCommand": "pnpm install --no-frozen-lockfile",  // 关键：添加此参数
   "buildCommand": "pnpm run build"
 }
