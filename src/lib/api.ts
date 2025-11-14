@@ -1,3 +1,4 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
 import { toast } from 'sonner';
 
 // 后端API基础URL - 请替换为您的实际后端API地址
