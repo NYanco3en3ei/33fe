@@ -28,6 +28,12 @@
         }
       }
     </script>
+    <!-- 引入 Tailwind 基础样式（Vite 构建时会自动处理） -->
+    <style type="text/tailwindcss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    </style>
   </head>
   <body class="font-inter bg-slate-50 dark:bg-slate-900">
     <div id="root"></div>
@@ -37,6 +43,11 @@
       // 这个脚本会在客户端处理路由，防止直接访问子路由时出现404
       if (import.meta.env.PROD) {
         // 仅在生产环境加载此逻辑
+        const handleRoute = () => {
+          // 匹配 React Router 路由规则，无实际逻辑需执行，仅确保客户端路由生效
+        };
+        window.addEventListener('popstate', handleRoute);
+        handleRoute();
       }
     </script>
   </body>
