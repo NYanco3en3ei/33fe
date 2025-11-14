@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
+      "src": "package.json",  
+      "use": "@vercel/static-build", 
       "config": { "distDir": "dist" } 
     }
   ],
@@ -13,5 +13,5 @@
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm run build"
+  "buildCommand": "pnpm run build"  // 确保执行 Vite 构建
 }
