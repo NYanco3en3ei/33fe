@@ -1,26 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
+  "builds": [{"src": "package.json", "use": "@vercel/static-build", "config": {"distDir": "dist"}}],
   "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(json|ico|txt))$",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    {"src": "/assets/(.*)", "dest": "/assets/$1"},
+    {"src": "/(.*\\.(js|css|json|ico))$", "dest": "/$1"},
+    {"src": "/(.*)", "dest": "/index.html"}
   ],
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist"
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm run build"
 }
